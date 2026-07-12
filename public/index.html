@@ -132,7 +132,15 @@
     line-height: 1.7;
     color: var(--cream50);
     max-width: 46ch;
-    margin-bottom: 48px;
+    margin-bottom: 20px;
+  }
+
+  .soon-note {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+    color: var(--cream50);
+    letter-spacing: 0.01em;
   }
 
   /* ── Contact drawer at the bottom ── */
@@ -209,8 +217,8 @@
   }
 
   button {
-    background: var(--cream);
-    color: var(--ink);
+    background: var(--red);
+    color: var(--cream);
     border: none;
     border-radius: 2px;
     padding: 13px 28px;
@@ -224,7 +232,7 @@
     flex-shrink: 0;
   }
 
-  button:hover { background: #e8e0c8; }
+  button:hover { background: #8f3a2c; }
   button:active { transform: translateY(1px); }
   button:disabled { opacity: 0.5; cursor: default; }
   button:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
@@ -239,7 +247,7 @@
 
   /* ── Footer line ── */
   footer {
-    background: #16281b;
+    background: var(--ink);
     padding: 20px 48px;
     display: flex;
     justify-content: space-between;
@@ -299,8 +307,8 @@
     </h1>
     <p class="descriptor fade">
       We shoot, we design, we cut, we ship.
-      Full site coming soon.
     </p>
+    <p class="soon-note fade">Full site coming soon.</p>
   </section>
 
   <div class="contact-strip">
