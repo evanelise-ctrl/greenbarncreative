@@ -88,6 +88,18 @@
 
   .hero video, .hero img { position: absolute; inset: 0; }
 
+  /* Sheet hero: a design page as the hero. Contain on a cream field, no crop. */
+  .hero.sheet { background: #FCF6E4; padding: 0; }
+  .hero.sheet img { object-fit: contain; padding: clamp(24px, 5vw, 72px) clamp(24px, 5vw, 72px) clamp(90px, 12vw, 150px); }
+  .hero.sheet::after {
+    background: linear-gradient(180deg,
+      rgba(252,246,228,0) 55%,
+      rgba(30,27,40,0.02) 70%,
+      rgba(30,27,40,0.55) 100%);
+  }
+  .hero.sheet .eyebrow { color: var(--pine); }
+  .hero.sheet h1 { color: var(--ink); }
+
   .hero::after {
     content: "";
     position: absolute;
@@ -393,11 +405,8 @@
 
 <!-- ── HERO ──
      hero.mp4 with hero-poster.jpg as the first frame and reduced-motion fallback. -->
-<header class="hero">
-  <img src="/work/e3-refillery/e3-hero.png" alt="e3 Refillery">
-  <video autoplay muted loop playsinline poster="/work/e3-refillery/e3-hero.png">
-    <source src="/work/e3-refillery/e3-brand-identity.mp4" type="video/mp4">
-  </video>
+<header class="hero sheet">
+  <img src="/work/e3-refillery/e3-identity.png" alt="e3 Refillery identity system">
   <div class="hero-title">
     <div class="wrap">
       <p class="eyebrow">e3 Refillery</p>
@@ -438,9 +447,11 @@
     <section class="run">
       <p class="run-label">Brand identity</p>
 
-      <!-- Identity sheet: letterboxed so the type never crops. -->
+      <!-- Brand identity motion piece, silent loop presented like a still. -->
       <figure class="r-wide sheet">
-        <img src="/work/e3-refillery/e3-identity.png" alt="e3 Refillery identity system">
+        <video class="loop" autoplay muted loop playsinline>
+          <source src="/work/e3-refillery/e3-brand-identity.mp4" type="video/mp4">
+        </video>
       </figure>
     </section>
 
