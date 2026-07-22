@@ -38,7 +38,11 @@
 
   body {
     font-family: "Public Sans", system-ui, sans-serif;
-    background: #1d3223;
+    /* Purple ground with a green glow up top. Green is accent, not surface. */
+    background:
+      radial-gradient(ellipse 90% 40% at 70% 0%, rgba(59,106,86,0.30) 0%, transparent 65%),
+      linear-gradient(180deg, #2c2839 0%, #24212f 55%, #1e1b28 100%);
+    background-attachment: fixed;
     color: var(--cream);
     -webkit-font-smoothing: antialiased;
     line-height: 1.6;
@@ -89,9 +93,9 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg,
-      rgba(29,50,35,0.55) 0%,
-      rgba(29,50,35,0.15) 45%,
-      rgba(29,50,35,0.85) 100%);
+      rgba(40,38,50,0.55) 0%,
+      rgba(40,38,50,0.12) 45%,
+      rgba(36,33,47,0.92) 100%);
   }
 
   .hero-title {
@@ -221,7 +225,7 @@
 
   /* ── Contact ── */
   .contact-strip {
-    background: #1c3222;
+    background: var(--pine);
     padding: 64px 0;
   }
 
@@ -417,6 +421,7 @@
       </div>
 
       <figure class="r-wide"><img src="/work/bedrock/com-wide-02.jpg" alt="Bedrock commercial interior"></figure>
+
 
     </section>
 
