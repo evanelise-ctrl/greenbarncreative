@@ -3,8 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Greenbarn Creative Co. — Photo, Film & Design</title>
-<meta name="description" content="Greenbarn Creative Co. is a Dearborn creative studio for photo, film, and design. Full site coming soon.">
+<title>Greenbarn Creative Co. — Photo, Film &amp; Design</title>
+<meta name="description" content="A Dearborn creative studio for photo, film, and design. Brand support for small businesses and event coverage.">
+
+<!-- Social share card. og.jpg is 1200x630. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Greenbarn Creative Co.">
+<meta property="og:description" content="Photo, film, and design for brands that want to look like themselves.">
+<meta property="og:image" content="https://greenbarncreative.com/og.jpg">
+<meta property="og:url" content="https://greenbarncreative.com/">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,142 +23,263 @@
     --pine:   #23422c;
     --moss:   #3b6a56;
     --cream:  #fbf7e2;
+    --cream70: rgba(251,247,226,0.7);
     --cream50: rgba(251,247,226,0.5);
     --cream20: rgba(251,247,226,0.2);
     --cream08: rgba(251,247,226,0.08);
     --red:    #a94635;
+    --gutter: 48px;
+    --maxw:   1400px;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html, body {
-    height: 100%;
+  html { scroll-behavior: smooth; }
+
+  body {
     font-family: "Public Sans", system-ui, sans-serif;
-    background: var(--ink);
+    /* Purple ground with a green glow up top. Green is accent, not surface. */
+    background:
+      radial-gradient(ellipse 90% 40% at 70% 0%, rgba(59,106,86,0.30) 0%, transparent 65%),
+      linear-gradient(180deg, #2c2839 0%, #24212f 55%, #1e1b28 100%);
+    background-attachment: fixed;
     color: var(--cream);
     -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
   }
 
-  /* ── Full-bleed background ── */
-  .bg {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    /* Purple is the ground. Green survives as atmospheric glow only.
-       Raise the 0.32 alpha to bring green forward, lower it to push green back. */
-    background:
-      radial-gradient(ellipse 85% 60% at 72% 38%, rgba(59,106,86,0.32) 0%, transparent 70%),
-      radial-gradient(ellipse 65% 75% at 8% 85%, rgba(35,66,44,0.28) 0%, transparent 68%),
-      linear-gradient(160deg, #2c2839 0%, #24212f 45%, #1c1a25 100%);
-  }
+  img, video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-  /* Background video — drone-road.mp4, tinted into the green.
-     opacity is the strength knob: 0.08 is a whisper, 0.2 is present. */
-  .bg video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.14;
-    mix-blend-mode: screen;
-    filter: saturate(0.4);
-  }
-
-  /* ── Layout ── */
-  .page {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
 
   /* ── Nav ── */
   nav {
-    padding: 36px 48px;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 3;
+    padding: 32px var(--gutter);
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .logo-mark {
-    height: 60px;
-    width: auto;
+  .logo-mark { height: 52px; width: auto; }
+
+  nav .links {
+    display: flex;
+    gap: 26px;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream70);
   }
 
-  .logo-text {
-    height: 42px;
-    width: auto;
-    /* Your text-only file is green; this renders it cream on the dark bg.
-       If you export a white/cream version, swap the src and delete this filter. */
-    filter: brightness(0) invert(0.97) sepia(0.15) saturate(1.2);
-  }
+  nav .links a { color: inherit; text-decoration: none; transition: color 0.15s; }
+  nav .links a:hover { color: var(--cream); }
+  nav .links a.current { color: var(--cream); }
 
   /* ── Hero ── */
   .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 48px;
-    max-width: 860px;
+    position: relative;
+    height: 82vh;
+    min-height: 460px;
+    overflow: hidden;
   }
 
-  .eyebrow {
+  .hero video, .hero img { position: absolute; inset: 0; }
+
+  /* Sheet hero: a design page as the hero. Contain on a cream field, no crop. */
+  .hero.sheet { background: #FCF6E4; padding: 0; }
+  .hero.sheet img { object-fit: contain; padding: clamp(24px, 5vw, 72px) clamp(24px, 5vw, 72px) clamp(90px, 12vw, 150px); }
+  .hero.sheet::after {
+    background: linear-gradient(180deg,
+      rgba(252,246,228,0) 55%,
+      rgba(30,27,40,0.02) 70%,
+      rgba(30,27,40,0.55) 100%);
+  }
+  .hero.sheet .eyebrow { color: var(--pine); }
+  .hero.sheet h1 { color: var(--ink); }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      rgba(40,38,50,0.55) 0%,
+      rgba(40,38,50,0.12) 45%,
+      rgba(36,33,47,0.92) 100%);
+  }
+
+  .hero-title {
+    position: absolute;
+    z-index: 2;
+    left: 0; right: 0; bottom: 48px;
+  }
+
+  .hero-title .eyebrow {
     font-size: 0.75rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--moss);
-    margin-bottom: 24px;
+    color: var(--cream70);
+    margin-bottom: 12px;
+  }
+
+  .hero-title h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Meta bar ── */
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--cream20);
+  }
+
+  .meta .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream50);
+    margin-bottom: 6px;
+  }
+
+  .meta .value { font-size: 0.98rem; color: var(--cream); }
+
+  /* ── Setup ── */
+  .setup {
+    padding: 52px 0 64px;
+    max-width: 62ch;
+    font-size: 1.12rem;
+    line-height: 1.75;
+    color: rgba(251,247,226,0.85);
+  }
+
+  /* ── Image runs ── */
+  .run { margin-bottom: 72px; }
+
+  .run-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream50);
+    margin-bottom: 18px;
+  }
+
+  figure { margin-bottom: 14px; overflow: hidden; border-radius: 2px; }
+
+  .r-wide { aspect-ratio: 3 / 2; }
+  .r-tall { aspect-ratio: 4 / 5; }
+  .r-video { aspect-ratio: 16 / 9; }
+
+  .pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .pair figure { margin-bottom: 0; }
+
+  /* Design artifacts. Never crop a brand book spread or an identity sheet,
+     the type gets cut. These letterbox onto a field instead. */
+  .sheet {
+    background: #FCF6E4;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    padding: clamp(14px, 2.5vw, 34px);
   }
+  .sheet img, .sheet video { object-fit: contain; }
 
-  .eyebrow::before {
-    content: "";
-    display: block;
-    width: 28px;
-    height: 1px;
-    background: var(--moss);
-  }
+  /* Short silent loops presented like stills, no player chrome. */
+  .loop { pointer-events: none; }
 
-  h1 {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(3rem, 7vw, 5.6rem);
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
+  /* Longer video the visitor chooses to play. */
+  .r-play { aspect-ratio: 16 / 9; background: #16281b; }
+  .r-play video { object-fit: contain; }
+
+  /* Live site button */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    padding: 13px 26px;
+    border: 1px solid var(--cream20);
+    border-radius: 2px;
     color: var(--cream);
-    margin-bottom: 28px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .btn:hover { background: rgba(251,247,226,0.06); border-color: var(--cream50); }
+  .btn:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+  /* Vimeo embed */
+  .embed {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 14px;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #16281b;
+  }
+  .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  /* ── Next project ── */
+  .next {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-top: 1px solid var(--cream20);
+    border-bottom: 1px solid var(--cream20);
+    padding: 40px 0;
+    margin-bottom: 0;
+    transition: background 0.2s;
   }
 
-  h1 em {
-    font-style: italic;
-    color: rgba(244,237,216,0.65);
+  .next:hover { background: rgba(251,247,226,0.04); }
+
+  .next .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
   }
 
-  .descriptor {
-    font-size: clamp(0.95rem, 1.6vw, 1.08rem);
-    line-height: 1.7;
+  .next .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     color: var(--cream50);
-    max-width: 46ch;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
 
-  .soon-note {
+  .next h2 {
     font-family: "Cormorant Garamond", Georgia, serif;
-    font-style: italic;
-    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
-    color: var(--cream50);
-    letter-spacing: 0.01em;
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    line-height: 1.05;
   }
 
-  /* ── Contact drawer at the bottom ── */
+  .next .arrow { font-size: 1.6rem; color: var(--cream50); }
+
+  /* ── Contact ── */
   .contact-strip {
     background: var(--pine);
-    border-top: 1px solid var(--cream20);
-    padding: 56px 48px;
+    padding: 64px 0;
+  }
+
+  .contact-inner {
     display: grid;
     grid-template-columns: 1fr 1.6fr;
     gap: 48px;
@@ -161,13 +291,9 @@
     font-size: clamp(1.8rem, 3vw, 2.6rem);
     font-weight: 400;
     line-height: 1.15;
-    color: var(--cream);
   }
 
-  .contact-strip h2 em {
-    font-style: italic;
-    color: var(--cream50);
-  }
+  .contact-strip h2 em { font-style: italic; color: var(--cream50); }
 
   .contact-strip p {
     margin-top: 10px;
@@ -176,10 +302,7 @@
     line-height: 1.6;
   }
 
-  form {
-    display: grid;
-    gap: 12px;
-  }
+  form { display: grid; gap: 12px; }
 
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
@@ -196,27 +319,17 @@
     appearance: none;
   }
 
-  input::placeholder, textarea::placeholder {
-    color: rgba(244,237,216,0.28);
-  }
+  input::placeholder, textarea::placeholder { color: rgba(251,247,226,0.28); }
 
   input:focus-visible, textarea:focus-visible {
     outline: none;
     border-color: var(--moss);
-    background: rgba(244,237,216,0.06);
+    background: rgba(251,247,226,0.06);
   }
 
-  textarea {
-    resize: vertical;
-    min-height: 100px;
-  }
+  textarea { resize: vertical; min-height: 100px; }
 
-  .form-footer {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
+  .form-footer { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 
   button {
     background: var(--ink);
@@ -239,84 +352,305 @@
   button:disabled { opacity: 0.5; cursor: default; }
   button:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
 
-  .form-status {
-    font-size: 0.88rem;
-    min-height: 1.2em;
-    color: var(--cream50);
-  }
+  .form-status { font-size: 0.88rem; min-height: 1.2em; color: var(--cream50); }
   .form-status.ok { color: #8fcba8; }
   .form-status.err { color: #f4a898; }
 
-  /* ── Footer line ── */
+  /* ── Footer ── */
   footer {
     background: var(--ink);
-    padding: 20px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 20px 0;
     font-size: 0.78rem;
     color: rgba(251,247,226,0.35);
     letter-spacing: 0.04em;
   }
 
+  footer .inner { display: flex; justify-content: space-between; align-items: center; }
   footer a { color: inherit; text-decoration: none; }
   footer a:hover { color: var(--cream50); }
 
-  /* ── Fade-in ── */
-  .fade { opacity: 0; transform: translateY(14px); animation: rise 0.8s ease forwards; }
-  .fade:nth-child(1) { animation-delay: 0.05s; }
-  .fade:nth-child(2) { animation-delay: 0.18s; }
-  .fade:nth-child(3) { animation-delay: 0.30s; }
-  .fade:nth-child(4) { animation-delay: 0.42s; }
-
-  @keyframes rise { to { opacity: 1; transform: none; } }
-
+  /* ── Motion ── */
   @media (prefers-reduced-motion: reduce) {
-    .fade { animation: none; opacity: 1; transform: none; }
-    .bg video { display: none; }
+    html { scroll-behavior: auto; }
+    .hero video { display: none; }
   }
 
   /* ── Responsive ── */
-  @media (max-width: 680px) {
-    nav { padding: 28px 24px; }
-    .hero { padding: 40px 24px; }
-    .contact-strip { padding: 36px 24px; grid-template-columns: 1fr; gap: 28px; }
-    footer { padding: 18px 24px; flex-direction: column; gap: 6px; text-align: center; }
+  @media (max-width: 760px) {
+    :root { --gutter: 24px; }
+    nav { padding: 22px var(--gutter); }
+    .logo-mark { height: 42px; }
+    nav .links { gap: 16px; font-size: 0.72rem; }
+    .hero { height: 62vh; }
+    .meta { grid-template-columns: 1fr; gap: 22px; }
+    .setup { font-size: 1.02rem; padding: 40px 0 48px; }
+    .pair { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 28px; }
     .row { grid-template-columns: 1fr; }
     button { width: 100%; }
+    footer .inner { flex-direction: column; gap: 6px; text-align: center; }
+  }
+
+  /* ── Home ── */
+  .hero h1 { max-width: 15ch; }
+
+  .hero .sub {
+    margin-top: 20px;
+    max-width: 46ch;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(251,247,226,0.78);
+  }
+
+  .band { padding: 76px 0; border-top: 1px solid var(--cream20); }
+
+  .band-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 34px;
+  }
+
+  .band-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream50);
+  }
+
+  .band-link {
+    font-size: 0.85rem;
+    color: var(--cream);
+    text-decoration: none;
+    border-bottom: 1px solid var(--cream20);
+    padding-bottom: 2px;
+  }
+  .band-link:hover { border-bottom-color: var(--cream); }
+
+  /* Work cards */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px 26px;
+  }
+
+  .work-card { text-decoration: none; color: inherit; display: block; }
+
+  .work-card .shot {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    background: #262234;
+  }
+
+  .work-card .shot img,
+  .work-card .shot video {
+    transition: transform 0.5s ease;
+  }
+
+  .work-card:hover .shot img,
+  .work-card:hover .shot video { transform: scale(1.03); }
+
+  .work-card h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+    line-height: 1.1;
+    margin-bottom: 7px;
+  }
+
+  .work-card p { font-size: 0.9rem; line-height: 1.6; color: var(--cream50); max-width: 40ch; }
+
+  /* Services teaser */
+  .svc-teaser {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--cream20);
+    border: 1px solid var(--cream20);
+  }
+
+  .svc-teaser > div { background: #262234; padding: 30px 28px 32px; }
+
+  .svc-teaser h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .svc-teaser p { font-size: 0.92rem; line-height: 1.65; color: var(--cream50); }
+
+  /* Clients */
+  .clients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 40px;
+    font-size: 0.98rem;
+    color: rgba(251,247,226,0.62);
+  }
+
+  /* Studio teaser */
+  .studio-teaser {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .studio-teaser h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .studio-teaser h2 em { font-style: italic; color: var(--cream50); }
+
+  .studio-teaser p { font-size: 1rem; line-height: 1.75; color: rgba(251,247,226,0.75); }
+
+  @media (max-width: 760px) {
+    .band { padding: 52px 0; }
+    .work-grid { grid-template-columns: 1fr; gap: 30px; }
+    .svc-teaser { grid-template-columns: 1fr; }
+    .studio-teaser { grid-template-columns: 1fr; gap: 22px; }
+    .clients { gap: 10px 26px; font-size: 0.9rem; }
   }
 </style>
-</head>
 <body>
 
-<div class="bg" aria-hidden="true">
-  <video autoplay muted loop playsinline>
+<nav>
+  <a href="/"><img src="/greenbarn_Barn Icon white.png" alt="Greenbarn Creative Co., home" class="logo-mark"></a>
+  <div class="links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/studio">Studio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <img src="/drone-road-poster.jpg" alt="">
+  <video autoplay muted loop playsinline poster="/drone-road-poster.jpg">
     <source src="/drone-road.mp4" type="video/mp4">
   </video>
-</div>
+  <div class="hero-title">
+    <div class="wrap">
+      <p class="eyebrow">Photo · Film · Design</p>
+      <h1>Work that makes brands look like themselves.</h1>
+      <p class="sub">A Dearborn creative studio. We shoot, we design, we cut, we ship.</p>
+    </div>
+  </div>
+</header>
 
-<div class="page">
+<main>
 
-  <nav>
-    <img src="/greenbarn_Barn Icon white.png" alt="" class="logo-mark">
-    <img src="/greenbarn_Logo text only with cc.png" alt="Greenbarn Creative Co." class="logo-text">
-  </nav>
+  <!-- ── FEATURED WORK ── -->
+  <section class="band">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="band-label">Selected work</p>
+        <a class="band-link" href="/work">See all work &#8594;</a>
+      </div>
 
-  <section class="hero" aria-labelledby="hero-heading">
-    <p class="eyebrow fade">Photo · Film · Design</p>
-    <h1 id="hero-heading" class="fade">
-      Work that makes<br>brands look like<br><em>themselves.</em>
-    </h1>
-    <p class="descriptor fade">
-      We shoot, we design, we cut, we ship.
-    </p>
-    <p class="soon-note fade">Full site coming soon.</p>
+      <div class="work-grid">
+
+        <a class="work-card" href="/work/bedrock">
+          <div class="shot"><img src="/work/bedrock/hero-poster.jpg" alt=""></div>
+          <h3>Bedrock</h3>
+          <p>Eight years in-house covering Detroit's largest real estate portfolio.</p>
+        </a>
+
+        <a class="work-card" href="/work/detroit-activations">
+          <div class="shot"><img src="/work/detroit-activations/hero-poster.jpg" alt=""></div>
+          <h3>Detroit Activations</h3>
+          <p>Coverage made for the city itself, not the property line.</p>
+        </a>
+
+        <a class="work-card" href="/work/e3-refillery">
+          <div class="shot"><img src="/work/e3-refillery/e3-hero.jpg" alt=""></div>
+          <h3>e3 Refillery</h3>
+          <p>Everything a new small business needs to look like one.</p>
+        </a>
+
+        <a class="work-card" href="/work/drnaumann">
+          <div class="shot"><img src="/work/drnaumann/ilka-hero-poster.jpg" alt=""></div>
+          <h3>Ilka Naumann, M.D.</h3>
+          <p>A practice identity and patient-facing site for a neuro-otologist.</p>
+        </a>
+
+      </div>
+    </div>
   </section>
 
-  <div class="contact-strip">
+  <!-- ── SERVICES ── -->
+  <section class="band">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="band-label">What we do</p>
+        <a class="band-link" href="/services">All services &#8594;</a>
+      </div>
+
+      <div class="svc-teaser">
+        <div>
+          <h3>Small business brand support</h3>
+          <p>The whole visual identity, from the logo through the website to the signs on the table. Take all of it, or start with one piece.</p>
+        </div>
+        <div>
+          <h3>Event coverage</h3>
+          <p>Photo, film, or both, on site for the day and turned around fast enough to still be timely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CLIENTS ──
+       Only list clients whose work you can name publicly. Trim as needed. -->
+  <section class="band">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="band-label">Selected clients</p>
+      </div>
+      <div class="clients">
+        <span>Bedrock</span>
+        <span>Cisco</span>
+        <span>City of Detroit</span>
+        <span>Crate &amp; Barrel</span>
+        <span>Library Street Collective</span>
+        <span>Downtown Detroit Partnership</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STUDIO ── -->
+  <section class="band">
+    <div class="wrap studio-teaser">
+      <div>
+        <h2>A studio, ten years<br><em>in the making.</em></h2>
+      </div>
+      <div>
+        <p>
+          Founded by two people who had already spent a decade working together
+          across a handful of companies before doing it under their own name.
+          Photo, film, design, and the operations that keep a project moving.
+        </p>
+        <a class="btn" href="/studio">More about the studio <span aria-hidden="true">&#8594;</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── CONTACT ── -->
+<section class="contact-strip" id="contact">
+  <div class="wrap contact-inner">
     <div>
       <h2>Start a<br><em>conversation.</em></h2>
-      <p>Have a project in mind or just want to say hello — send a note and we'll get back to you.</p>
+      <p>Have a project in mind or just want to say hello, send a note and we'll get back to you.</p>
     </div>
 
     <form id="contact-form" novalidate>
@@ -325,12 +659,8 @@
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
       <div class="row">
-        <div>
-          <input id="name" name="name" type="text" placeholder="Name" required autocomplete="name">
-        </div>
-        <div>
-          <input id="email" name="email" type="email" placeholder="Email" required autocomplete="email">
-        </div>
+        <input id="name" name="name" type="text" placeholder="Name" required autocomplete="name">
+        <input id="email" name="email" type="email" placeholder="Email" required autocomplete="email">
       </div>
 
       <textarea id="message" name="message" placeholder="Tell us about your project" required></textarea>
@@ -341,13 +671,14 @@
       </div>
     </form>
   </div>
+</section>
 
-  <footer>
+<footer>
+  <div class="wrap inner">
     <span>© 2026 Greenbarn Creative Co. · Dearborn, Michigan</span>
     <a href="mailto:hello@greenbarncreative.com">hello@greenbarncreative.com</a>
-  </footer>
-
-</div>
+  </div>
+</footer>
 
 <script>
   const form = document.getElementById("contact-form");
@@ -379,7 +710,7 @@
       }
     } catch {
       status.className = "form-status err";
-      status.textContent = "Something went wrong — email us directly.";
+      status.textContent = "Something went wrong, email us directly.";
       btn.textContent = "Send";
     } finally {
       btn.disabled = false;
