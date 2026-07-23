@@ -200,26 +200,6 @@
   /* Short silent loops presented like stills, no player chrome. */
   .loop { pointer-events: none; }
 
-  /* Hover to play. A small mark shows it is playable, then gets out of the way. */
-  .hoverplay { position: relative; }
-
-  .hoverplay::before {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    left: 16px;
-    bottom: 16px;
-    width: 0;
-    height: 0;
-    border-left: 11px solid var(--cream);
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    opacity: 0.85;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-
-  .hoverplay:hover::before { opacity: 0; }
 
   /* Vertical social video, shown three across. */
   .trio {
