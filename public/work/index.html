@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>e3 Refillery — Greenbarn Creative Co.</title>
-<meta name="description" content="Brand identity, website, and materials for e3 Refillery, a zero-waste refill shop in Dearborn.">
+<title>Work — Greenbarn Creative Co.</title>
+<meta name="description" content="Selected photo, film, and design work from Greenbarn Creative Co.">
 
 <!-- Social share card. og.jpg is 1200x630. -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="e3 Refillery — Greenbarn Creative Co.">
-<meta property="og:description" content="Everything a new small business needs to look like one.">
-<meta property="og:image" content="https://greenbarncreative.com/work/e3-refillery/og.jpg">
-<meta property="og:url" content="https://greenbarncreative.com/work/e3-refillery">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Work — Greenbarn Creative Co.">
+<meta property="og:description" content="Selected photo, film, and design work.">
+<meta property="og:image" content="https://greenbarncreative.com/og.jpg">
+<meta property="og:url" content="https://greenbarncreative.com/work">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -390,127 +390,222 @@
     button { width: 100%; }
     footer .inner { flex-direction: column; gap: 6px; text-align: center; }
   }
+
+  /* ── Home ── */
+  .hero h1 { max-width: 15ch; }
+
+  .hero .sub {
+    margin-top: 20px;
+    max-width: 46ch;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(251,247,226,0.78);
+  }
+
+  .band { padding: 76px 0; border-top: 1px solid var(--cream20); }
+
+  .band-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 34px;
+  }
+
+  .band-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream50);
+  }
+
+  .band-link {
+    font-size: 0.85rem;
+    color: var(--cream);
+    text-decoration: none;
+    border-bottom: 1px solid var(--cream20);
+    padding-bottom: 2px;
+  }
+  .band-link:hover { border-bottom-color: var(--cream); }
+
+  /* Work cards */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px 26px;
+  }
+
+  .work-card { text-decoration: none; color: inherit; display: block; }
+
+  .work-card .shot {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    background: #262234;
+  }
+
+  .work-card .shot img,
+  .work-card .shot video {
+    transition: transform 0.5s ease;
+  }
+
+  .work-card:hover .shot img,
+  .work-card:hover .shot video { transform: scale(1.03); }
+
+  .work-card h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+    line-height: 1.1;
+    margin-bottom: 7px;
+  }
+
+  .work-card p { font-size: 0.9rem; line-height: 1.6; color: var(--cream50); max-width: 40ch; }
+
+  /* Services teaser */
+  .svc-teaser {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--cream20);
+    border: 1px solid var(--cream20);
+  }
+
+  .svc-teaser > div { background: #262234; padding: 30px 28px 32px; }
+
+  .svc-teaser h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .svc-teaser p { font-size: 0.92rem; line-height: 1.65; color: var(--cream50); }
+
+  /* Clients */
+  .clients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 40px;
+    font-size: 0.98rem;
+    color: rgba(251,247,226,0.62);
+  }
+
+  /* Studio teaser */
+  .studio-teaser {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .studio-teaser h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .studio-teaser h2 em { font-style: italic; color: var(--cream50); }
+
+  .studio-teaser p { font-size: 1rem; line-height: 1.75; color: rgba(251,247,226,0.75); }
+
+  @media (max-width: 760px) {
+    .band { padding: 52px 0; }
+    .work-grid { grid-template-columns: 1fr; gap: 30px; }
+    .svc-teaser { grid-template-columns: 1fr; }
+    .studio-teaser { grid-template-columns: 1fr; gap: 22px; }
+    .clients { gap: 10px 26px; font-size: 0.9rem; }
+  }
+
+  /* ── Work index ── */
+  .work-index-head { padding: 150px 0 56px; }
+
+  .work-index-head .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream50);
+    margin-bottom: 16px;
+  }
+
+  .work-index-head h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  .work-index { padding-bottom: 84px; }
+
+  .work-index .work-grid { gap: 48px 26px; }
+
+  @media (max-width: 760px) {
+    .work-index-head { padding: 120px 0 36px; }
+    .work-index { padding-bottom: 52px; }
+  }
 </style>
-</head>
 <body>
 
 <nav>
   <a href="/"><img src="/greenbarn_Barn Icon white.png" alt="Greenbarn Creative Co., home" class="logo-mark"></a>
   <div class="links">
     <a href="/work" class="current">Work</a>
+    <a href="/services">Services</a>
     <a href="/studio">Studio</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<!-- ── HERO ──
-     hero.mp4 with hero-poster.jpg as the first frame and reduced-motion fallback. -->
-<header class="hero">
-  <img src="/work/e3-refillery/e3-hero.jpg" alt="e3 Refillery">
-  <video autoplay muted loop playsinline poster="/work/e3-refillery/e3-hero.jpg">
-    <source src="/work/e3-refillery/e3-herovideo.mp4" type="video/mp4">
-  </video>
-  <div class="hero-title">
-    <div class="wrap">
-      <p class="eyebrow">e3 Refillery</p>
-      <h1>Everything a new<br>small business<br>needs to look like one.</h1>
-    </div>
-  </div>
-</header>
-
 <main>
   <div class="wrap">
 
-    <!-- ── META ── -->
-    <section class="meta">
-      <div>
-        <p class="label">Client</p>
-        <p class="value">e3 Refillery, Dearborn</p>
-      </div>
-      <div>
-        <!-- Set the real year or range. -->
-        <p class="label">Year</p>
-        <p class="value">2025 to 2026</p>
-      </div>
-      <div>
-        <p class="label">Scope</p>
-        <p class="value">Brand identity, brand guide, website, signage and materials</p>
+    <header class="work-index-head">
+      <p class="eyebrow">Work</p>
+      <h1>Photo, film,<br>and design.</h1>
+    </header>
+
+    <section class="work-index">
+      <div class="work-grid">
+
+        <a class="work-card" href="/work/bedrock">
+          <div class="shot"><img src="/work/bedrock/hero-poster.jpg" alt=""></div>
+          <h3>Bedrock</h3>
+          <p>Eight years in-house covering Detroit's largest real estate portfolio.</p>
+        </a>
+
+        <a class="work-card" href="/work/detroit-activations">
+          <div class="shot"><img src="/work/detroit-activations/hero-poster.jpg" alt=""></div>
+          <h3>Detroit Activations</h3>
+          <p>Coverage made for the city itself, not the property line.</p>
+        </a>
+
+
+        <a class="work-card" href="/work/cisco-spaces">
+          <div class="shot"><img src="/work/cisco-spaces/hero-poster.jpg" alt=""></div>
+          <h3>Cisco Spaces</h3>
+          <p>Social, customer, and event content for a Cisco product team.</p>
+        </a>
+
+        <a class="work-card" href="/work/e3-refillery">
+          <div class="shot"><img src="/work/e3-refillery/e3-hero.jpg" alt=""></div>
+          <h3>e3 Refillery</h3>
+          <p>Everything a new small business needs to look like one.</p>
+        </a>
+
+        <a class="work-card" href="/work/drnaumann">
+          <div class="shot"><img src="/work/drnaumann/ilka-hero-poster.jpg" alt=""></div>
+          <h3>Ilka Naumann, M.D.</h3>
+          <p>A practice identity and patient-facing site for a neuro-otologist.</p>
+        </a>
+
       </div>
     </section>
 
-    <!-- ── SETUP ── -->
-    <p class="setup">
-      A zero-waste refill shop in Dearborn, branded from the ground up. Logo and
-      identity system, a full brand guide, the website, and the market setup Anna
-      sells from. The whole visual identity of a small business, built to keep
-      running without us.
-    </p>
-
-    <!-- ── BRAND IDENTITY ── -->
-    <section class="run">
-      <p class="run-label">Brand identity</p>
-
-      <!-- Identity sheet: letterboxed so the type never crops. -->
-      <figure class="r-wide sheet">
-        <img src="/work/e3-refillery/e3-identity.png" alt="e3 Refillery identity system">
-      </figure>
-
-      <!-- Brand identity motion piece, silent loop presented like a still. -->
-      <figure class="r-wide sheet">
-        <video class="loop" autoplay muted loop playsinline>
-          <source src="/work/e3-refillery/e3-brand-identity.mp4" type="video/mp4">
-        </video>
-      </figure>
-    </section>
-
-    <!-- ── WEBSITE ── -->
-    <section class="run">
-      <p class="run-label">Website</p>
-
-      <figure class="r-play">
-        <video controls playsinline preload="metadata" poster="/work/e3-refillery/e3-hero.jpg">
-          <source src="/work/e3-refillery/e3-web-full.mp4" type="video/mp4">
-        </video>
-      </figure>
-
-      <!-- Swap in the real URL. -->
-      <a class="btn" href="https://LIVE_SITE_URL" target="_blank" rel="noopener">
-        Visit the live site <span aria-hidden="true">&#8599;</span>
-      </a>
-    </section>
-
-    <!-- ── AT THE MARKET ── -->
-    <section class="run">
-      <p class="run-label">At the market</p>
-
-      <figure class="r-wide"><img src="/work/e3-refillery/e3-display-wide.jpg" alt="e3 Refillery market display"></figure>
-
-      <div class="pair">
-        <figure class="r-tall"><img src="/work/e3-refillery/e3-anna.jpg" alt="Anna at the e3 Refillery market booth"></figure>
-        <figure class="r-tall"><img src="/work/e3-refillery/e3-display-tall.jpg" alt="e3 Refillery products on display"></figure>
-      </div>
-
-      <!-- Product detail, silent loop presented like a still. -->
-      <figure class="r-wide">
-        <video class="loop" autoplay muted loop playsinline>
-          <source src="/work/e3-refillery/e3-detail.mp4" type="video/mp4">
-        </video>
-      </figure>
-    </section>
-
-  </div>
-
-  <!-- ── NEXT PROJECT ── -->
-  <div class="wrap">
-    <a class="next" href="/work/drnaumann">
-      <div class="inner">
-        <div>
-          <p class="label">Next project</p>
-          <h2>Ilka Naumann, M.D.</h2>
-        </div>
-        <span class="arrow" aria-hidden="true">&rarr;</span>
-      </div>
-    </a>
   </div>
 </main>
 
