@@ -71,12 +71,12 @@
     font-size: 0.82rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--ink);
+    color: var(--cream70);
   }
 
-  nav .links a { color: inherit; text-decoration: none; transition: opacity 0.15s; opacity: 0.7; }
-  nav .links a:hover { opacity: 1; }
-  nav .links a.current { opacity: 1; }
+  nav .links a { color: inherit; text-decoration: none; transition: color 0.15s; }
+  nav .links a:hover { color: var(--cream); }
+  nav .links a.current { color: var(--cream); }
 
   /* ── Hero ── */
   .hero {
@@ -395,7 +395,7 @@
 <body>
 
 <nav>
-  <a href="/"><img src="/greenbarn_Barn Icon Green.png" alt="Greenbarn Creative Co., home" class="logo-mark"></a>
+  <a href="/"><img src="/greenbarn_Barn Icon white.png" alt="Greenbarn Creative Co., home" class="logo-mark"></a>
   <div class="links">
     <a href="/work" class="current">Work</a>
     <a href="/studio">Studio</a>
@@ -405,8 +405,11 @@
 
 <!-- ── HERO ──
      hero.mp4 with hero-poster.jpg as the first frame and reduced-motion fallback. -->
-<header class="hero sheet">
-  <img src="/work/e3-refillery/e3-identity.png" alt="e3 Refillery identity system">
+<header class="hero">
+  <img src="/work/e3-refillery/e3-hero.png" alt="e3 Refillery">
+  <video autoplay muted loop playsinline poster="/work/e3-refillery/e3-hero.png">
+    <source src="/work/e3-refillery/e3-herovideo.mp4" type="video/mp4">
+  </video>
   <div class="hero-title">
     <div class="wrap">
       <p class="eyebrow">e3 Refillery</p>
@@ -447,6 +450,11 @@
     <section class="run">
       <p class="run-label">Brand identity</p>
 
+      <!-- Identity sheet: letterboxed so the type never crops. -->
+      <figure class="r-wide sheet">
+        <img src="/work/e3-refillery/e3-identity.png" alt="e3 Refillery identity system">
+      </figure>
+
       <!-- Brand identity motion piece, silent loop presented like a still. -->
       <figure class="r-wide sheet">
         <video class="loop" autoplay muted loop playsinline>
@@ -466,7 +474,7 @@
       </figure>
 
       <!-- Swap in the real URL. -->
-      <a class="btn" href="https://LIVE_SITE_URL" target="_blank" rel="noopener">
+      <a class="btn" href="https://www.e3refillery.com" target="_blank" rel="noopener">
         Visit the live site <span aria-hidden="true">&#8599;</span>
       </a>
     </section>
