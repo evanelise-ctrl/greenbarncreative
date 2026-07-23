@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Greenbarn Creative Co.</title>
+<meta name="description" content="Small business brand support and event coverage. Take the whole package or just the pieces you need.">
+
+<!-- Social share card. og.jpg is 1200x630. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Services — Greenbarn Creative Co.">
+<meta property="og:description" content="Brand support and event coverage from a two-person studio in Dearborn.">
+<meta property="og:image" content="https://greenbarncreative.com/og.jpg">
+<meta property="og:url" content="https://greenbarncreative.com/services">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:    #282632;
+    --pine:   #23422c;
+    --moss:   #3b6a56;
+    --cream:  #fbf7e2;
+    --cream70: rgba(251,247,226,0.7);
+    --cream50: rgba(251,247,226,0.5);
+    --cream20: rgba(251,247,226,0.2);
+    --cream08: rgba(251,247,226,0.08);
+    --red:    #a94635;
+    --gutter: 48px;
+    --maxw:   1400px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Public Sans", system-ui, sans-serif;
+    /* Purple ground with a green glow up top. Green is accent, not surface. */
+    background:
+      radial-gradient(ellipse 90% 40% at 70% 0%, rgba(59,106,86,0.30) 0%, transparent 65%),
+      linear-gradient(180deg, #2c2839 0%, #24212f 55%, #1e1b28 100%);
+    background-attachment: fixed;
+    color: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  img, video { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* ── Nav ── */
+  nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 3;
+    padding: 32px var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-mark { height: 52px; width: auto; }
+
+  nav .links {
+    display: flex;
+    gap: 26px;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream70);
+  }
+
+  nav .links a { color: inherit; text-decoration: none; transition: color 0.15s; }
+  nav .links a:hover { color: var(--cream); }
+  nav .links a.current { color: var(--cream); }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    height: 82vh;
+    min-height: 460px;
+    overflow: hidden;
+  }
+
+  .hero video, .hero img { position: absolute; inset: 0; }
+
+  /* Sheet hero: a design page as the hero. Contain on a cream field, no crop. */
+  .hero.sheet { background: #FCF6E4; padding: 0; }
+  .hero.sheet img { object-fit: contain; padding: clamp(24px, 5vw, 72px) clamp(24px, 5vw, 72px) clamp(90px, 12vw, 150px); }
+  .hero.sheet::after {
+    background: linear-gradient(180deg,
+      rgba(252,246,228,0) 55%,
+      rgba(30,27,40,0.02) 70%,
+      rgba(30,27,40,0.55) 100%);
+  }
+  .hero.sheet .eyebrow { color: var(--pine); }
+  .hero.sheet h1 { color: var(--ink); }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      rgba(40,38,50,0.55) 0%,
+      rgba(40,38,50,0.12) 45%,
+      rgba(36,33,47,0.92) 100%);
+  }
+
+  .hero-title {
+    position: absolute;
+    z-index: 2;
+    left: 0; right: 0; bottom: 48px;
+  }
+
+  .hero-title .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream70);
+    margin-bottom: 12px;
+  }
+
+  .hero-title h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Meta bar ── */
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--cream20);
+  }
+
+  .meta .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream50);
+    margin-bottom: 6px;
+  }
+
+  .meta .value { font-size: 0.98rem; color: var(--cream); }
+
+  /* ── Setup ── */
+  .setup {
+    padding: 52px 0 64px;
+    max-width: 62ch;
+    font-size: 1.12rem;
+    line-height: 1.75;
+    color: rgba(251,247,226,0.85);
+  }
+
+  /* ── Image runs ── */
+  .run { margin-bottom: 72px; }
+
+  .run-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream50);
+    margin-bottom: 18px;
+  }
+
+  figure { margin-bottom: 14px; overflow: hidden; border-radius: 2px; }
+
+  .r-wide { aspect-ratio: 3 / 2; }
+  .r-tall { aspect-ratio: 4 / 5; }
+  .r-video { aspect-ratio: 16 / 9; }
+
+  .pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .pair figure { margin-bottom: 0; }
+
+  /* Design artifacts. Never crop a brand book spread or an identity sheet,
+     the type gets cut. These letterbox onto a field instead. */
+  .sheet {
+    background: #FCF6E4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(14px, 2.5vw, 34px);
+  }
+  .sheet img, .sheet video { object-fit: contain; }
+
+  /* Short silent loops presented like stills, no player chrome. */
+  .loop { pointer-events: none; }
+
+  /* Longer video the visitor chooses to play. */
+  .r-play { aspect-ratio: 16 / 9; background: #16281b; }
+  .r-play video { object-fit: contain; }
+
+  /* Live site button */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    padding: 13px 26px;
+    border: 1px solid var(--cream20);
+    border-radius: 2px;
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .btn:hover { background: rgba(251,247,226,0.06); border-color: var(--cream50); }
+  .btn:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+  /* Vimeo embed */
+  .embed {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 14px;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #16281b;
+  }
+  .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  /* ── Next project ── */
+  .next {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-top: 1px solid var(--cream20);
+    border-bottom: 1px solid var(--cream20);
+    padding: 40px 0;
+    margin-bottom: 0;
+    transition: background 0.2s;
+  }
+
+  .next:hover { background: rgba(251,247,226,0.04); }
+
+  .next .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+  }
+
+  .next .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream50);
+    margin-bottom: 8px;
+  }
+
+  .next h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    line-height: 1.05;
+  }
+
+  .next .arrow { font-size: 1.6rem; color: var(--cream50); }
+
+  /* ── Contact ── */
+  .contact-strip {
+    background: var(--pine);
+    padding: 64px 0;
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .contact-strip h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  .contact-strip h2 em { font-style: italic; color: var(--cream50); }
+
+  .contact-strip p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--cream50);
+    line-height: 1.6;
+  }
+
+  form { display: grid; gap: 12px; }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  input, textarea {
+    width: 100%;
+    background: var(--cream08);
+    border: 1px solid var(--cream20);
+    border-radius: 2px;
+    padding: 13px 16px;
+    color: var(--cream);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.15s, background 0.15s;
+    appearance: none;
+  }
+
+  input::placeholder, textarea::placeholder { color: rgba(251,247,226,0.28); }
+
+  input:focus-visible, textarea:focus-visible {
+    outline: none;
+    border-color: var(--moss);
+    background: rgba(251,247,226,0.06);
+  }
+
+  textarea { resize: vertical; min-height: 100px; }
+
+  .form-footer { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+  button {
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    border-radius: 2px;
+    padding: 13px 28px;
+    font-family: "Public Sans", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    flex-shrink: 0;
+  }
+
+  button:hover { background: #363248; }
+  button:active { transform: translateY(1px); }
+  button:disabled { opacity: 0.5; cursor: default; }
+  button:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+  .form-status { font-size: 0.88rem; min-height: 1.2em; color: var(--cream50); }
+  .form-status.ok { color: #8fcba8; }
+  .form-status.err { color: #f4a898; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--ink);
+    padding: 20px 0;
+    font-size: 0.78rem;
+    color: rgba(251,247,226,0.35);
+    letter-spacing: 0.04em;
+  }
+
+  footer .inner { display: flex; justify-content: space-between; align-items: center; }
+  footer a { color: inherit; text-decoration: none; }
+  footer a:hover { color: var(--cream50); }
+
+  /* ── Motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero video { display: none; }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 760px) {
+    :root { --gutter: 24px; }
+    nav { padding: 22px var(--gutter); }
+    .logo-mark { height: 42px; }
+    nav .links { gap: 16px; font-size: 0.72rem; }
+    .hero { height: 62vh; }
+    .meta { grid-template-columns: 1fr; gap: 22px; }
+    .setup { font-size: 1.02rem; padding: 40px 0 48px; }
+    .pair { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 28px; }
+    .row { grid-template-columns: 1fr; }
+    button { width: 100%; }
+    footer .inner { flex-direction: column; gap: 6px; text-align: center; }
+  }
+
+  /* ── Services page ── */
+  .page-head { padding: 150px 0 64px; }
+
+  .page-head .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream50);
+    margin-bottom: 16px;
+  }
+
+  .page-head h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 22px;
+  }
+
+  .page-head p {
+    max-width: 54ch;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(251,247,226,0.75);
+  }
+
+  .service {
+    border-top: 1px solid var(--cream20);
+    padding: 56px 0 64px;
+  }
+
+  .service-head {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+
+  .service-num {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream50);
+    margin-bottom: 10px;
+  }
+
+  .service h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .service-intro { font-size: 1rem; line-height: 1.75; color: rgba(251,247,226,0.75); }
+
+  .service-intro .flex-note {
+    display: block;
+    margin-top: 14px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--cream50);
+  }
+
+  /* Deliverable tiles */
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1px;
+    background: var(--cream20);
+    border: 1px solid var(--cream20);
+  }
+
+  .tile {
+    background: #262234;
+    padding: 24px 22px 26px;
+  }
+
+  .tile h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin-bottom: 7px;
+  }
+
+  .tile p { font-size: 0.88rem; line-height: 1.6; color: var(--cream50); }
+
+  /* Footer row under each service */
+  .service-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .proof { font-size: 0.9rem; color: var(--cream50); }
+  .proof a { color: var(--cream); text-decoration: none; border-bottom: 1px solid var(--cream20); }
+  .proof a:hover { border-bottom-color: var(--cream); }
+
+  @media (max-width: 760px) {
+    .page-head { padding: 120px 0 44px; }
+    .service-head { grid-template-columns: 1fr; gap: 20px; margin-bottom: 28px; }
+    .service { padding: 40px 0 48px; }
+    .service-foot { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .btn { width: 100%; justify-content: center; }
+  }
+</style>
+<body>
+
+<nav>
+  <a href="/"><img src="/greenbarn_Barn Icon white.png" alt="Greenbarn Creative Co., home" class="logo-mark"></a>
+  <div class="links">
+    <a href="/work">Work</a>
+    <a href="/services" class="current">Services</a>
+    <a href="/studio">Studio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <header class="page-head">
+      <p class="eyebrow">Services</p>
+      <h1>Two ways to<br>work together.</h1>
+      <p>
+        A two-person studio in Dearborn. We shoot, we design, we cut, we ship.
+        Take a whole package or just the pieces you need.
+      </p>
+    </header>
+
+    <!-- ── SERVICE ONE ── -->
+    <section class="service">
+      <div class="service-head">
+        <div>
+          <p class="service-num">Service one</p>
+          <h2>Small business<br>brand support.</h2>
+        </div>
+        <div class="service-intro">
+          For a business that needs to look established before it feels like one.
+          We build the whole visual identity, from the logo through the website to
+          the signs on the table at a market, and hand it over so it keeps working
+          without us.
+          <span class="flex-note">Take all of it, or start with one piece.</span>
+        </div>
+      </div>
+
+      <div class="tiles">
+        <div class="tile">
+          <h3>Brand kit</h3>
+          <p>Logo, type, color, and a guide so everything stays consistent as you grow.</p>
+        </div>
+        <div class="tile">
+          <h3>Website</h3>
+          <p>Designed, built, and live, with everything a customer needs to decide.</p>
+        </div>
+        <div class="tile">
+          <h3>Hero video</h3>
+          <p>One short film for the top of your site and the front of your feed.</p>
+        </div>
+        <div class="tile">
+          <h3>Brand photography</h3>
+          <p>Product, people, and place, shot to match the identity rather than fight it.</p>
+        </div>
+        <div class="tile">
+          <h3>Physical materials</h3>
+          <p>Signage, packaging, cards, and print, prepared and ready for the printer.</p>
+        </div>
+        <div class="tile">
+          <h3>Social content</h3>
+          <p>A batch of posts and short clips you can schedule out over months.</p>
+        </div>
+        <div class="tile">
+          <h3>Asset library</h3>
+          <p>Every file organized and handed over. Yours to keep and reuse.</p>
+        </div>
+      </div>
+
+      <div class="service-foot">
+        <p class="proof">
+          See it in practice:
+          <a href="/work/e3-refillery">e3 Refillery</a> and
+          <a href="/work/drnaumann">Ilka Naumann, M.D.</a>
+        </p>
+        <a class="btn" href="#contact">Start a project</a>
+      </div>
+    </section>
+
+    <!-- ── SERVICE TWO ── -->
+    <section class="service">
+      <div class="service-head">
+        <div>
+          <p class="service-num">Service two</p>
+          <h2>Event<br>coverage.</h2>
+        </div>
+        <div class="service-intro">
+          One or two of us on site for the day, working quietly and staying out of
+          the way. You get finished work back fast enough for it to still be timely,
+          cut for wherever it needs to go.
+          <span class="flex-note">Pick one, or have us cover both.</span>
+        </div>
+      </div>
+
+      <div class="tiles">
+        <div class="tile">
+          <h3>Video</h3>
+          <p>An edited film of the day, plus short vertical cuts for social.</p>
+        </div>
+        <div class="tile">
+          <h3>Photo</h3>
+          <p>A finished gallery, color corrected and delivered on a quick turnaround.</p>
+        </div>
+        <div class="tile">
+          <h3>Both</h3>
+          <p>Two of us covering the whole thing, so nothing gets missed either way.</p>
+        </div>
+      </div>
+
+      <div class="service-foot">
+        <p class="proof">
+          See it in practice:
+          <a href="/work/detroit-activations">Detroit Activations</a>
+        </p>
+        <a class="btn" href="#contact">Check availability</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ── CONTACT ── -->
+<section class="contact-strip" id="contact">
+  <div class="wrap contact-inner">
+    <div>
+      <h2>Start a<br><em>conversation.</em></h2>
+      <p>Have a project in mind or just want to say hello, send a note and we'll get back to you.</p>
+    </div>
+
+    <form id="contact-form" novalidate>
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+      <input type="hidden" name="subject" value="New inquiry — greenbarncreative.com">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="row">
+        <input id="name" name="name" type="text" placeholder="Name" required autocomplete="name">
+        <input id="email" name="email" type="email" placeholder="Email" required autocomplete="email">
+      </div>
+
+      <textarea id="message" name="message" placeholder="Tell us about your project" required></textarea>
+
+      <div class="form-footer">
+        <button type="submit" id="submit-btn">Send</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap inner">
+    <span>© 2026 Greenbarn Creative Co. · Dearborn, Michigan</span>
+    <a href="mailto:hello@greenbarncreative.com">hello@greenbarncreative.com</a>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  const btn = document.getElementById("submit-btn");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    status.className = "form-status";
+    status.textContent = "";
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if (data.success) {
+        status.className = "form-status ok";
+        status.textContent = "Message sent. Talk soon.";
+        form.reset();
+        btn.textContent = "Send";
+      } else {
+        throw new Error(data.message);
+      }
+    } catch {
+      status.className = "form-status err";
+      status.textContent = "Something went wrong, email us directly.";
+      btn.textContent = "Send";
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
