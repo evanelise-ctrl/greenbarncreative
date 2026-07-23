@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cisco Spaces — Greenbarn Creative Co.</title>
+<meta name="description" content="Social content, customer stories, and event coverage for the Cisco Spaces team.">
+
+<!-- Social share card. og.jpg is 1200x630. -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cisco Spaces — Greenbarn Creative Co.">
+<meta property="og:description" content="Making the smart office make sense.">
+<meta property="og:image" content="https://greenbarncreative.com/work/cisco-spaces/og.jpg">
+<meta property="og:url" content="https://greenbarncreative.com/work/cisco-spaces">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:    #282632;
+    --pine:   #23422c;
+    --moss:   #3b6a56;
+    --cream:  #fbf7e2;
+    --cream70: rgba(251,247,226,0.7);
+    --cream50: rgba(251,247,226,0.5);
+    --cream20: rgba(251,247,226,0.2);
+    --cream08: rgba(251,247,226,0.08);
+    --red:    #a94635;
+    --gutter: 48px;
+    --maxw:   1400px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Public Sans", system-ui, sans-serif;
+    /* Purple ground with a green glow up top. Green is accent, not surface. */
+    background:
+      radial-gradient(ellipse 90% 40% at 70% 0%, rgba(59,106,86,0.30) 0%, transparent 65%),
+      linear-gradient(180deg, #2c2839 0%, #24212f 55%, #1e1b28 100%);
+    background-attachment: fixed;
+    color: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  img, video { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* ── Nav ── */
+  nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 3;
+    padding: 32px var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-mark { height: 52px; width: auto; }
+
+  nav .links {
+    display: flex;
+    gap: 26px;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream70);
+  }
+
+  nav .links a { color: inherit; text-decoration: none; transition: color 0.15s; }
+  nav .links a:hover { color: var(--cream); }
+  nav .links a.current { color: var(--cream); }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    height: 82vh;
+    min-height: 460px;
+    overflow: hidden;
+  }
+
+  .hero video, .hero img { position: absolute; inset: 0; }
+
+  /* Sheet hero: a design page as the hero. Contain on a cream field, no crop. */
+  .hero.sheet { background: #FCF6E4; padding: 0; }
+  .hero.sheet img { object-fit: contain; padding: clamp(24px, 5vw, 72px) clamp(24px, 5vw, 72px) clamp(90px, 12vw, 150px); }
+  .hero.sheet::after {
+    background: linear-gradient(180deg,
+      rgba(252,246,228,0) 55%,
+      rgba(30,27,40,0.02) 70%,
+      rgba(30,27,40,0.55) 100%);
+  }
+  .hero.sheet .eyebrow { color: var(--pine); }
+  .hero.sheet h1 { color: var(--ink); }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      rgba(40,38,50,0.55) 0%,
+      rgba(40,38,50,0.12) 45%,
+      rgba(36,33,47,0.92) 100%);
+  }
+
+  .hero-title {
+    position: absolute;
+    z-index: 2;
+    left: 0; right: 0; bottom: 48px;
+  }
+
+  .hero-title .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream70);
+    margin-bottom: 12px;
+  }
+
+  .hero-title h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Meta bar ── */
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--cream20);
+  }
+
+  .meta .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream50);
+    margin-bottom: 6px;
+  }
+
+  .meta .value { font-size: 0.98rem; color: var(--cream); }
+
+  /* ── Setup ── */
+  .setup {
+    padding: 52px 0 64px;
+    max-width: 62ch;
+    font-size: 1.12rem;
+    line-height: 1.75;
+    color: rgba(251,247,226,0.85);
+  }
+
+  /* ── Image runs ── */
+  .run { margin-bottom: 72px; }
+
+  .run-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream50);
+    margin-bottom: 18px;
+  }
+
+  figure { margin-bottom: 14px; overflow: hidden; border-radius: 2px; }
+
+  .r-wide { aspect-ratio: 3 / 2; }
+  .r-tall { aspect-ratio: 4 / 5; }
+  .r-video { aspect-ratio: 16 / 9; }
+
+  .pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .pair figure { margin-bottom: 0; }
+
+  /* Design artifacts. Never crop a brand book spread or an identity sheet,
+     the type gets cut. These letterbox onto a field instead. */
+  .sheet {
+    background: #FCF6E4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(14px, 2.5vw, 34px);
+  }
+  .sheet img, .sheet video { object-fit: contain; }
+
+  /* Short silent loops presented like stills, no player chrome. */
+  .loop { pointer-events: none; }
+
+  /* Hover to play. A small mark shows it is playable, then gets out of the way. */
+  .hoverplay { position: relative; }
+
+  .hoverplay::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: 16px;
+    bottom: 16px;
+    width: 0;
+    height: 0;
+    border-left: 11px solid var(--cream);
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .hoverplay:hover::before { opacity: 0; }
+
+  /* Vertical social video, shown three across. */
+  .trio {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .trio figure { margin-bottom: 0; }
+  .r-vert { aspect-ratio: 9 / 16; }
+
+  @media (max-width: 760px) {
+    .trio { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  }
+
+  /* Longer video the visitor chooses to play. */
+  .r-play { aspect-ratio: 16 / 9; background: #16281b; }
+  .r-play video { object-fit: contain; }
+
+  /* Live site button */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    padding: 13px 26px;
+    border: 1px solid var(--cream20);
+    border-radius: 2px;
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .btn:hover { background: rgba(251,247,226,0.06); border-color: var(--cream50); }
+  .btn:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+  /* Vimeo embed */
+  .embed {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 14px;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #16281b;
+  }
+  .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  /* ── Next project ── */
+  .next {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-top: 1px solid var(--cream20);
+    border-bottom: 1px solid var(--cream20);
+    padding: 40px 0;
+    margin-bottom: 0;
+    transition: background 0.2s;
+  }
+
+  .next:hover { background: rgba(251,247,226,0.04); }
+
+  .next .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+  }
+
+  .next .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream50);
+    margin-bottom: 8px;
+  }
+
+  .next h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    line-height: 1.05;
+  }
+
+  .next .arrow { font-size: 1.6rem; color: var(--cream50); }
+
+  /* ── Contact ── */
+  .contact-strip {
+    background: var(--pine);
+    padding: 64px 0;
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .contact-strip h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  .contact-strip h2 em { font-style: italic; color: var(--cream50); }
+
+  .contact-strip p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--cream50);
+    line-height: 1.6;
+  }
+
+  form { display: grid; gap: 12px; }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  input, textarea {
+    width: 100%;
+    background: var(--cream08);
+    border: 1px solid var(--cream20);
+    border-radius: 2px;
+    padding: 13px 16px;
+    color: var(--cream);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.15s, background 0.15s;
+    appearance: none;
+  }
+
+  input::placeholder, textarea::placeholder { color: rgba(251,247,226,0.28); }
+
+  input:focus-visible, textarea:focus-visible {
+    outline: none;
+    border-color: var(--moss);
+    background: rgba(251,247,226,0.06);
+  }
+
+  textarea { resize: vertical; min-height: 100px; }
+
+  .form-footer { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+  button {
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    border-radius: 2px;
+    padding: 13px 28px;
+    font-family: "Public Sans", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    flex-shrink: 0;
+  }
+
+  button:hover { background: #363248; }
+  button:active { transform: translateY(1px); }
+  button:disabled { opacity: 0.5; cursor: default; }
+  button:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+  .form-status { font-size: 0.88rem; min-height: 1.2em; color: var(--cream50); }
+  .form-status.ok { color: #8fcba8; }
+  .form-status.err { color: #f4a898; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--ink);
+    padding: 20px 0;
+    font-size: 0.78rem;
+    color: rgba(251,247,226,0.35);
+    letter-spacing: 0.04em;
+  }
+
+  footer .inner { display: flex; justify-content: space-between; align-items: center; }
+  footer a { color: inherit; text-decoration: none; }
+  footer a:hover { color: var(--cream50); }
+
+  /* ── Motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero video { display: none; }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 760px) {
+    :root { --gutter: 24px; }
+    nav { padding: 22px var(--gutter); }
+    .logo-mark { height: 42px; }
+    nav .links { gap: 16px; font-size: 0.72rem; }
+    .hero { height: 62vh; }
+    .meta { grid-template-columns: 1fr; gap: 22px; }
+    .setup { font-size: 1.02rem; padding: 40px 0 48px; }
+    .pair { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 28px; }
+    .row { grid-template-columns: 1fr; }
+    button { width: 100%; }
+    footer .inner { flex-direction: column; gap: 6px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/"><img src="/greenbarn_Barn Icon white.png" alt="Greenbarn Creative Co., home" class="logo-mark"></a>
+  <div class="links">
+    <a href="/work" class="current">Work</a>
+    <a href="/studio">Studio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ── HERO ──
+     hero.mp4 with hero-poster.jpg as the first frame and reduced-motion fallback. -->
+<header class="hero">
+  <img src="/work/cisco-spaces/hero-poster.jpg" alt="Cisco Spaces">
+  <video autoplay muted loop playsinline poster="/work/cisco-spaces/hero-poster.jpg">
+    <source src="/work/cisco-spaces/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-title">
+    <div class="wrap">
+      <p class="eyebrow">Cisco Spaces</p>
+      <h1>Making the smart office<br>make sense.</h1>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- ── META ── -->
+    <section class="meta">
+      <div>
+        <p class="label">Client</p>
+        <p class="value">Cisco Spaces, via eMotion Studios</p>
+      </div>
+      <div>
+        <p class="label">Year</p>
+        <p class="value">2024 to 2026</p>
+      </div>
+      <div>
+        <p class="label">Scope</p>
+        <p class="value">Social planning and support, brand content, customer testimonials, event coverage, webinar promotion</p>
+      </div>
+    </section>
+
+    <!-- ── SETUP ── -->
+    <p class="setup">
+      Senior creative partnered directly with the Cisco Spaces team on social
+      content and community engagement. Mostly motion: short vertical cuts for
+      social, product demos, and event coverage shot on site. Much of it built
+      around how people actually use the product.
+    </p>
+
+    <!-- ── SOCIAL CONTENT ──
+         Vertical silent loops. Add or remove figures freely, three per row. -->
+    <section class="run">
+      <p class="run-label">Social content</p>
+
+      <div class="trio">
+        <figure class="r-vert hoverplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-01.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="r-vert hoverplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-02.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="r-vert hoverplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-03.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <div class="trio">
+        <figure class="r-vert hoverplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-04.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="r-vert hoverplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-05.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="r-vert hoverplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-06.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ── PRODUCT DEMOS ──
+         Silent loops at full width. Duplicate a figure to add more. -->
+    <section class="run">
+      <p class="run-label">Product demos</p>
+
+      <figure class="r-video hoverplay">
+        <video class="loop" muted loop playsinline preload="metadata" data-hover>
+          <source src="/work/cisco-spaces/demo-01.mp4" type="video/mp4">
+        </video>
+      </figure>
+
+      <figure class="r-video hoverplay">
+        <video class="loop" muted loop playsinline preload="metadata" data-hover>
+          <source src="/work/cisco-spaces/demo-02.mp4" type="video/mp4">
+        </video>
+      </figure>
+
+      <figure class="r-video hoverplay">
+        <video class="loop" muted loop playsinline preload="metadata" data-hover>
+          <source src="/work/cisco-spaces/demo-03.mp4" type="video/mp4">
+        </video>
+      </figure>
+    </section>
+
+    <!-- ── EVENT COVERAGE ── -->
+    <section class="run">
+      <p class="run-label">Event coverage</p>
+
+      <figure class="r-wide"><img src="/work/cisco-spaces/event-wide-01.jpg" alt="Cisco Spaces event coverage"></figure>
+
+      <div class="pair">
+        <figure class="r-tall"><img src="/work/cisco-spaces/event-tall-01.jpg" alt="Cisco Spaces event coverage"></figure>
+        <figure class="r-tall"><img src="/work/cisco-spaces/event-tall-02.jpg" alt="Cisco Spaces event coverage"></figure>
+      </div>
+    </section>
+
+    <!-- ── CUSTOMER STORY ──
+         The only piece with speech, so it keeps sound and its own controls. -->
+    <section class="run">
+      <p class="run-label">Customer story</p>
+
+      <figure class="r-play">
+        <video controls playsinline preload="metadata" poster="/work/cisco-spaces/testimonial-poster.jpg">
+          <source src="/work/cisco-spaces/testimonial.mp4" type="video/mp4">
+        </video>
+      </figure>
+    </section>
+
+  </div>
+
+  <!-- ── NEXT PROJECT ── -->
+  <div class="wrap">
+    <a class="next" href="/work/e3-refillery">
+      <div class="inner">
+        <div>
+          <p class="label">Next project</p>
+          <h2>e3 Refillery</h2>
+        </div>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </div>
+    </a>
+  </div>
+</main>
+
+<!-- ── CONTACT ── -->
+<section class="contact-strip" id="contact">
+  <div class="wrap contact-inner">
+    <div>
+      <h2>Start a<br><em>conversation.</em></h2>
+      <p>Have a project in mind or just want to say hello, send a note and we'll get back to you.</p>
+    </div>
+
+    <form id="contact-form" novalidate>
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+      <input type="hidden" name="subject" value="New inquiry — greenbarncreative.com">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="row">
+        <input id="name" name="name" type="text" placeholder="Name" required autocomplete="name">
+        <input id="email" name="email" type="email" placeholder="Email" required autocomplete="email">
+      </div>
+
+      <textarea id="message" name="message" placeholder="Tell us about your project" required></textarea>
+
+      <div class="form-footer">
+        <button type="submit" id="submit-btn">Send</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap inner">
+    <span>© 2026 Greenbarn Creative Co. · Dearborn, Michigan</span>
+    <a href="mailto:hello@greenbarncreative.com">hello@greenbarncreative.com</a>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  const btn = document.getElementById("submit-btn");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    status.className = "form-status";
+    status.textContent = "";
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if (data.success) {
+        status.className = "form-status ok";
+        status.textContent = "Message sent. Talk soon.";
+        form.reset();
+        btn.textContent = "Send";
+      } else {
+        throw new Error(data.message);
+      }
+    } catch {
+      status.className = "form-status err";
+      status.textContent = "Something went wrong, email us directly.";
+      btn.textContent = "Send";
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
+
+<script>
+  /* Hover to play. Touch devices have no hover, so those play when scrolled into view. */
+  (function () {
+    var vids = document.querySelectorAll('video[data-hover]');
+    if (!vids.length) return;
+
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (calm) return;
+
+    var noHover = window.matchMedia('(hover: none)').matches;
+
+    if (noHover) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.play().catch(function () {}); }
+          else { e.target.pause(); }
+        });
+      }, { threshold: 0.4 });
+      vids.forEach(function (v) { io.observe(v); });
+      return;
+    }
+
+    vids.forEach(function (v) {
+      var fig = v.closest('figure');
+      if (!fig) return;
+      fig.addEventListener('mouseenter', function () { v.play().catch(function () {}); });
+      fig.addEventListener('mouseleave', function () { v.pause(); v.currentTime = 0; });
+    });
+  })();
+</script>
+
+</body>
+</html>
