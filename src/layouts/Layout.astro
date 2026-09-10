@@ -1,0 +1,192 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+}
+
+const {
+  title,
+  description,
+  path,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = "https://greenbarncreative.com/og.jpg",
+  ogType = "website",
+} = Astro.props;
+
+const canonicalUrl = `https://greenbarncreative.com${path === "/" ? "" : path}`;
+const isProjectPage = path.startsWith("/work/") && path !== "/work";
+const isWorkCurrent = path === "/work" || isProjectPage;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content={description}>
+
+<!-- Canonical URL for this page -->
+<link rel="canonical" href={canonicalUrl}>
+
+<!-- Social share card. og.jpg is 1200x630. -->
+<meta property="og:type" content={ogType}>
+<meta property="og:title" content={ogTitle}>
+<meta property="og:description" content={ogDescription}>
+<meta property="og:image" content={ogImage}>
+<meta property="og:url" content={canonicalUrl}>
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Structured data: identifies the studio to search engines. Same block goes on every page. -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Greenbarn Creative Co.",
+  "description": "A Dearborn creative studio helping small businesses with brand identity, websites, photography, and film. Corporate event coverage available.",
+  "url": "https://greenbarncreative.com",
+  "logo": "https://greenbarncreative.com/greenbarn-barn-icon-white.png",
+  "image": "https://greenbarncreative.com/og.jpg",
+  "email": "hello@greenbarncreative.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dearborn",
+    "addressRegion": "MI",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Dearborn" },
+    { "@type": "City", "name": "Detroit" },
+    { "@type": "State", "name": "Michigan" }
+  ],
+  "founder": { "@type": "Person", "name": "Evan Elise Gonzalez" },
+  "sameAs": [
+    "https://www.instagram.com/YOUR_INSTAGRAM_HANDLE",
+    "https://www.linkedin.com/company/YOUR_LINKEDIN_HANDLE"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Small Business Brand Support",
+          "description": "Brand identity, websites, photography, and film for small businesses."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Corporate Event Coverage",
+          "description": "Photo and video coverage for corporate events and activations."
+        }
+      }
+    ]
+  }
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/"><img src="/greenbarn_Barn Icon white.png" alt="Greenbarn Creative Co., home" class="logo-mark"></a>
+  <div class="links">
+    <a href="/work" class={isWorkCurrent ? "current" : undefined}>Work</a>
+    {!isProjectPage && <a href="/services" class={path === "/services" ? "current" : undefined}>Services</a>}
+    <a href="/studio" class={path === "/studio" ? "current" : undefined}>Studio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<slot />
+
+<!-- ── CONTACT ── -->
+<section class="contact-strip" id="contact">
+  <div class="wrap contact-inner">
+    <div>
+      <h2>Start a<br><em>conversation.</em></h2>
+      <p>Have a project in mind or just want to say hello, send a note and we'll get back to you.</p>
+    </div>
+
+    <form id="contact-form" novalidate>
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+      <input type="hidden" name="subject" value="New inquiry — greenbarncreative.com">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="row">
+        <input id="name" name="name" type="text" placeholder="Name" required autocomplete="name">
+        <input id="email" name="email" type="email" placeholder="Email" required autocomplete="email">
+      </div>
+
+      <textarea id="message" name="message" placeholder="Tell us about your project" required></textarea>
+
+      <div class="form-footer">
+        <button type="submit" id="submit-btn">Send</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap inner">
+    <span>© 2026 Greenbarn Creative Co. · Dearborn, Michigan</span>
+    <a href="mailto:hello@greenbarncreative.com">hello@greenbarncreative.com</a>
+  </div>
+</footer>
+
+<script is:inline>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  const btn = document.getElementById("submit-btn");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    status.className = "form-status";
+    status.textContent = "";
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if (data.success) {
+        status.className = "form-status ok";
+        status.textContent = "Message sent. Talk soon.";
+        form.reset();
+        btn.textContent = "Send";
+      } else {
+        throw new Error(data.message);
+      }
+    } catch {
+      status.className = "form-status err";
+      status.textContent = "Something went wrong, email us directly.";
+      btn.textContent = "Send";
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>

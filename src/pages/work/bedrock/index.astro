@@ -1,0 +1,102 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+---
+
+<Layout
+  title="Bedrock — Greenbarn Creative Co."
+  description="Eight years in-house covering Detroit's largest real estate portfolio. Photography, video, and campaign work for Bedrock."
+  path="/work/bedrock"
+  ogDescription="Eight years in-house covering Detroit's largest real estate portfolio."
+  ogImage="https://greenbarncreative.com/work/bedrock/og.jpg"
+  ogType="article"
+>
+
+<!-- ── HERO ──
+     hero.mp4 with hero-poster.jpg as the first frame and reduced-motion fallback. -->
+<header class="hero">
+  <img src="/work/bedrock/hero-poster.jpg" alt="">
+  <video autoplay muted loop playsinline poster="/work/bedrock/hero-poster.jpg">
+    <source src="/work/bedrock/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-title">
+    <div class="wrap">
+      <p class="eyebrow">Bedrock</p>
+      <h1>Detroit, built<br>and photographed.</h1>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- ── META ── -->
+    <section class="meta">
+      <div>
+        <p class="label">Client</p>
+        <p class="value">Bedrock</p>
+      </div>
+      <div>
+        <p class="label">Year</p>
+        <p class="value">2013 to 2021</p>
+      </div>
+      <div>
+        <p class="label">Scope</p>
+        <p class="value">Photography, videography, art direction, creative direction, print collateral, campaign</p>
+      </div>
+    </section>
+
+    <!-- ── SETUP ── -->
+    <p class="setup">
+      Eight years in-house at Detroit's largest developer, covering the portfolio
+      end to end. Tenant case studies, commercial and residential photography and
+      video, 360 walkthroughs supporting the leasing teams, and installation work
+      across the properties.
+    </p>
+
+    <!-- ── RESIDENTIAL ── -->
+    <section class="run">
+      <p class="run-label">Residential</p>
+
+      <figure class="r-wide"><img src="/work/bedrock/res-wide-01.jpg" alt="Bedrock residential property"></figure>
+
+      <div class="pair">
+        <figure class="r-tall"><img src="/work/bedrock/res-tall-01.jpg" alt="Bedrock residential interior"></figure>
+        <figure class="r-tall"><img src="/work/bedrock/res-tall-02.jpg" alt="Bedrock residential detail"></figure>
+      </div>
+
+      <figure class="r-wide"><img src="/work/bedrock/res-wide-02.jpg" alt="Bedrock residential building"></figure>
+    </section>
+
+    <!-- ── COMMERCIAL ── -->
+    <section class="run">
+      <p class="run-label">Commercial</p>
+
+      <figure class="r-wide"><img src="/work/bedrock/com-wide-01.jpg" alt="Bedrock commercial property"></figure>
+
+      <div class="pair">
+        <figure class="r-tall"><img src="/work/bedrock/com-tall-01.jpg" alt="Bedrock tenant case study"></figure>
+        <figure class="r-tall"><img src="/work/bedrock/com-tall-02.jpg" alt="Bedrock commercial installation"></figure>
+      </div>
+
+      <figure class="r-wide"><img src="/work/bedrock/com-wide-02.jpg" alt="Bedrock commercial interior"></figure>
+
+
+    </section>
+
+  </div>
+
+  <!-- ── NEXT PROJECT ── -->
+  <div class="wrap">
+    <a class="next" href="/work/detroit-activations">
+      <div class="inner">
+        <div>
+          <p class="label">Next project</p>
+          <h2>Detroit Activations</h2>
+        </div>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </div>
+    </a>
+  </div>
+</main>
+
+</Layout>

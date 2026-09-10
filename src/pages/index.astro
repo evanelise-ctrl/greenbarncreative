@@ -1,0 +1,126 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Greenbarn Creative Co. — Photo, Film & Design"
+  description="A Dearborn creative studio for photo, film, and design. Brand support for small businesses and event coverage."
+  path="/"
+  ogTitle="Greenbarn Creative Co."
+  ogDescription="Photo, film, and design for brands that want to look like themselves."
+>
+
+<header class="hero">
+  <img src="/drone-road-poster.jpg" alt="">
+  <video autoplay muted loop playsinline poster="/drone-road-poster.jpg">
+    <source src="/drone-road.mp4" type="video/mp4">
+  </video>
+  <div class="hero-title">
+    <div class="wrap">
+      <p class="eyebrow">Photo · Film · Design</p>
+      <h1>Work that makes brands look like themselves.</h1>
+      <p class="sub">A Dearborn creative studio. We shoot, we design, we cut, we ship.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── FEATURED WORK ── -->
+  <section class="band">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="band-label">Selected work</p>
+        <a class="band-link" href="/work">See all work &#8594;</a>
+      </div>
+
+      <div class="work-grid">
+
+        <a class="work-card" href="/work/bedrock">
+          <div class="shot"><img src="/work/bedrock/hero-poster.jpg" alt=""></div>
+          <h3>Bedrock</h3>
+          <p>Eight years in-house covering Detroit's largest real estate portfolio.</p>
+        </a>
+
+        <a class="work-card" href="/work/cisco-spaces">
+          <div class="shot"><img src="/work/cisco-spaces/hero-poster.jpg" alt=""></div>
+          <h3>Cisco Spaces</h3>
+          <p>Social, customer, and event content for a Cisco product team.</p>
+        </a>
+
+        <a class="work-card" href="/work/e3-refillery">
+          <div class="shot"><img src="/work/e3-refillery/e3-hero.jpg" alt=""></div>
+          <h3>e3 Refillery</h3>
+          <p>Everything a new small business needs to look like one.</p>
+        </a>
+
+        <a class="work-card" href="/work/drnaumann">
+          <div class="shot"><img src="/work/drnaumann/ilka-hero-poster.jpg" alt=""></div>
+          <h3>Ilka Naumann, M.D.</h3>
+          <p>A practice identity and patient-facing site for a neuro-otologist.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="band">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="band-label">What we do</p>
+        <a class="band-link" href="/services">All services &#8594;</a>
+      </div>
+
+      <div class="svc-teaser">
+        <div>
+          <h3>Small business brand support</h3>
+          <p>The whole visual identity, from the logo through the website to the signs on the table. Take all of it, or start with one piece.</p>
+        </div>
+        <div>
+          <h3>Event coverage</h3>
+          <p>Photo, film, or both, on site for the day and turned around fast enough to still be timely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CLIENTS ──
+       Only list clients whose work you can name publicly. Trim as needed. -->
+  <section class="band">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="band-label">Selected clients</p>
+      </div>
+      <div class="clients">
+        <span>Bedrock</span>
+        <span>Cisco</span>
+        <span>City of Detroit</span>
+        <span>Crate &amp; Barrel</span>
+        <span>Library Street Collective</span>
+        <span>Downtown Detroit Partnership</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STUDIO ── -->
+  <section class="band">
+    <div class="wrap studio-teaser">
+      <div>
+        <h2>A studio, ten years<br><em>in the making.</em></h2>
+      </div>
+      <div>
+        <p>
+          Founded on a decade of working together across a handful of companies,
+          before doing it under our own name. Photo, film, design, and the
+          operations that keep a project moving. We bring in the people a job
+          needs when it needs them.
+        </p>
+        <a class="btn" href="/studio">More about the studio <span aria-hidden="true">&#8594;</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</Layout>

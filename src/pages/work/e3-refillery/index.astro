@@ -1,0 +1,125 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+---
+
+<Layout
+  title="e3 Refillery — Greenbarn Creative Co."
+  description="Brand identity, website, and materials for e3 Refillery, a zero-waste refill shop in Dearborn."
+  path="/work/e3-refillery"
+  ogDescription="Everything a new small business needs to look like one."
+  ogImage="https://greenbarncreative.com/work/e3-refillery/og.jpg"
+  ogType="article"
+>
+
+<!-- ── HERO ──
+     hero.mp4 with hero-poster.jpg as the first frame and reduced-motion fallback. -->
+<header class="hero">
+  <img src="/work/e3-refillery/e3-hero.jpg" alt="e3 Refillery">
+  <video autoplay muted loop playsinline poster="/work/e3-refillery/e3-hero.jpg">
+    <source src="/work/e3-refillery/e3-herovideo.mp4" type="video/mp4">
+  </video>
+  <div class="hero-title">
+    <div class="wrap">
+      <p class="eyebrow">e3 Refillery</p>
+      <h1>Everything a new<br>small business<br>needs to look like one.</h1>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- ── META ── -->
+    <section class="meta">
+      <div>
+        <p class="label">Client</p>
+        <p class="value">e3 Refillery, Dearborn</p>
+      </div>
+      <div>
+        <!-- Set the real year or range. -->
+        <p class="label">Year</p>
+        <p class="value">2025 to 2026</p>
+      </div>
+      <div>
+        <p class="label">Scope</p>
+        <p class="value">Brand identity, brand guide, website, signage and materials</p>
+      </div>
+    </section>
+
+    <!-- ── SETUP ── -->
+    <p class="setup">
+      A zero-waste refill shop in Dearborn, branded from the ground up. Logo and
+      identity system, a full brand guide, the website, and the market setup Anna
+      sells from. The whole visual identity of a small business, built to keep
+      running without us.
+    </p>
+
+    <!-- ── BRAND IDENTITY ── -->
+    <section class="run">
+      <p class="run-label">Brand identity</p>
+
+      <!-- Identity sheet: letterboxed so the type never crops. -->
+      <figure class="r-wide sheet">
+        <img src="/work/e3-refillery/e3-identity.png" alt="e3 Refillery identity system">
+      </figure>
+
+      <!-- Brand identity motion piece, silent loop presented like a still. -->
+      <figure class="r-wide sheet">
+        <video class="loop" autoplay muted loop playsinline>
+          <source src="/work/e3-refillery/e3-brand-identity.mp4" type="video/mp4">
+        </video>
+      </figure>
+    </section>
+
+    <!-- ── WEBSITE ── -->
+    <section class="run">
+      <p class="run-label">Website</p>
+
+      <figure class="r-play">
+        <video controls playsinline preload="metadata" poster="/work/e3-refillery/e3-hero.jpg">
+          <source src="/work/e3-refillery/e3-web-full.mp4" type="video/mp4">
+        </video>
+      </figure>
+
+      <!-- Swap in the real URL. -->
+      <a class="btn" href="https://LIVE_SITE_URL" target="_blank" rel="noopener">
+        Visit the live site <span aria-hidden="true">&#8599;</span>
+      </a>
+    </section>
+
+    <!-- ── AT THE MARKET ── -->
+    <section class="run">
+      <p class="run-label">At the market</p>
+
+      <figure class="r-wide"><img src="/work/e3-refillery/e3-display-wide.jpg" alt="e3 Refillery market display"></figure>
+
+      <div class="pair">
+        <figure class="r-tall"><img src="/work/e3-refillery/e3-anna.jpg" alt="Anna at the e3 Refillery market booth"></figure>
+        <figure class="r-tall"><img src="/work/e3-refillery/e3-display-tall.jpg" alt="e3 Refillery products on display"></figure>
+      </div>
+
+      <!-- Product detail, silent loop presented like a still. -->
+      <figure class="r-wide">
+        <video class="loop" autoplay muted loop playsinline>
+          <source src="/work/e3-refillery/e3-detail.mp4" type="video/mp4">
+        </video>
+      </figure>
+    </section>
+
+  </div>
+
+  <!-- ── NEXT PROJECT ── -->
+  <div class="wrap">
+    <a class="next" href="/work/drnaumann">
+      <div class="inner">
+        <div>
+          <p class="label">Next project</p>
+          <h2>Ilka Naumann, M.D.</h2>
+        </div>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </div>
+    </a>
+  </div>
+</main>
+
+</Layout>

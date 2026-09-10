@@ -1,0 +1,119 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+---
+
+<Layout
+  title="Detroit Activations — Greenbarn Creative Co."
+  description="Work made for the city itself. XO Detroit, the Downtown Detroit Partnership, and Library Street Collective."
+  path="/work/detroit-activations"
+  ogDescription="Work made for the city itself, not the property line."
+  ogImage="https://greenbarncreative.com/work/detroit-activations/og.jpg"
+  ogType="article"
+>
+
+<!-- ── HERO ──
+     hero.mp4 with hero-poster.jpg as the first frame and reduced-motion fallback. -->
+<header class="hero">
+  <img src="/work/detroit-activations/hero-poster.jpg" alt="">
+  <video autoplay muted loop playsinline poster="/work/detroit-activations/hero-poster.jpg">
+    <source src="/work/detroit-activations/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-title">
+    <div class="wrap">
+      <p class="eyebrow">Detroit Activations</p>
+      <h1>Work made for<br>the city itself.</h1>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- ── META ── -->
+    <section class="meta">
+      <div>
+        <p class="label">Client</p>
+        <p class="value">Bedrock, in-house</p>
+      </div>
+      <div>
+        <!-- Narrow this if the city work spanned a shorter stretch than the full Bedrock tenure. -->
+        <p class="label">Year</p>
+        <p class="value">2013 to 2021</p>
+      </div>
+      <div>
+        <!-- Draft scope. Trim or add to match what this body of work actually covered. -->
+        <p class="label">Scope</p>
+        <p class="value">Photography, videography, event coverage, art direction</p>
+      </div>
+    </section>
+
+    <!-- ── SETUP ── -->
+    <p class="setup">
+      Also made in-house at Bedrock, but pointed outward. XO Detroit as an online
+      resource for the city, event coverage for the Downtown Detroit Partnership,
+      and artist coverage for Library Street Collective. Work about Detroit rather
+      than about the buildings.
+    </p>
+
+    <!-- ── XO DETROIT ── -->
+    <section class="run">
+      <p class="run-label">XO Detroit</p>
+
+      <figure class="r-wide"><img src="/work/detroit-activations/xo-wide-01.jpg" alt="XO Detroit"></figure>
+
+      <div class="pair">
+        <figure class="r-tall"><img src="/work/detroit-activations/xo-tall-01.jpg" alt="XO Detroit"></figure>
+        <figure class="r-tall"><img src="/work/detroit-activations/xo-tall-02.jpg" alt="XO Detroit"></figure>
+      </div>
+    </section>
+
+    <!-- ── DOWNTOWN DETROIT PARTNERSHIP ── -->
+    <section class="run">
+      <p class="run-label">Downtown Detroit Partnership</p>
+
+      <figure class="r-wide"><img src="/work/detroit-activations/ddp-wide-01.jpg" alt="Downtown Detroit Partnership event"></figure>
+
+      <div class="pair">
+        <figure class="r-tall"><img src="/work/detroit-activations/ddp-tall-01.jpg" alt="Downtown Detroit Partnership event"></figure>
+        <figure class="r-tall"><img src="/work/detroit-activations/ddp-tall-02.jpg" alt="Downtown Detroit Partnership event"></figure>
+      </div>
+
+      <!-- ── VIDEO ──
+           Event coverage is the most video-natural of the three runs.
+           Swap VIMEO_ID for the real ID, or delete this block if there is no film. -->
+      <div class="embed">
+        <iframe src="https://player.vimeo.com/video/VIMEO_ID?title=0&byline=0&portrait=0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                title="Downtown Detroit Partnership event film"></iframe>
+      </div>
+    </section>
+
+    <!-- ── LIBRARY STREET COLLECTIVE ── -->
+    <section class="run">
+      <p class="run-label">Library Street Collective</p>
+
+      <figure class="r-wide"><img src="/work/detroit-activations/lsc-wide-01.jpg" alt="Library Street Collective artist coverage"></figure>
+
+      <div class="pair">
+        <figure class="r-tall"><img src="/work/detroit-activations/lsc-tall-01.jpg" alt="Library Street Collective artist coverage"></figure>
+        <figure class="r-tall"><img src="/work/detroit-activations/lsc-tall-02.jpg" alt="Library Street Collective artist coverage"></figure>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ── NEXT PROJECT ── -->
+  <div class="wrap">
+    <a class="next" href="/work/cisco-spaces">
+      <div class="inner">
+        <div>
+          <p class="label">Next project</p>
+          <h2>Cisco Spaces</h2>
+        </div>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </div>
+    </a>
+  </div>
+</main>
+
+</Layout>

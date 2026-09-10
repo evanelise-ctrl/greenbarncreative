@@ -1,0 +1,193 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+---
+
+<Layout
+  title="Cisco Spaces — Greenbarn Creative Co."
+  description="Social content, customer stories, and event coverage for the Cisco Spaces team."
+  path="/work/cisco-spaces"
+  ogDescription="Making the smart office make sense."
+  ogImage="https://greenbarncreative.com/work/cisco-spaces/og.jpg"
+  ogType="article"
+>
+
+<!-- ── HERO ──
+     hero.mp4 with hero-poster.jpg as the first frame and reduced-motion fallback. -->
+<header class="hero">
+  <img src="/work/cisco-spaces/hero-poster.jpg" alt="Cisco Spaces">
+  <video autoplay muted loop playsinline poster="/work/cisco-spaces/hero-poster.jpg">
+    <source src="/work/cisco-spaces/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-title">
+    <div class="wrap">
+      <p class="eyebrow">Cisco Spaces</p>
+      <h1>Making the smart office<br>make sense.</h1>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- ── META ── -->
+    <section class="meta">
+      <div>
+        <p class="label">Client</p>
+        <p class="value">Cisco Spaces, via eMotion Studios</p>
+      </div>
+      <div>
+        <p class="label">Year</p>
+        <p class="value">2024 to 2026</p>
+      </div>
+      <div>
+        <p class="label">Scope</p>
+        <p class="value">Social planning and support, brand content, customer testimonials, event coverage, webinar promotion</p>
+      </div>
+    </section>
+
+    <!-- ── SETUP ── -->
+    <p class="setup">
+      Senior creative partnered directly with the Cisco Spaces team on social
+      content and community engagement. Mostly motion: short vertical cuts for
+      social, product demos, and event coverage shot on site. Much of it built
+      around how people actually use the product.
+    </p>
+
+    <!-- ── SOCIAL CONTENT ──
+         Vertical silent loops. Add or remove figures freely, three per row. -->
+    <section class="run">
+      <p class="run-label">Social content</p>
+
+      <div class="trio">
+        <figure class="r-vert autoplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-01.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="r-vert autoplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-02.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="r-vert autoplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-03.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <div class="trio">
+        <figure class="r-vert autoplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-04.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="r-vert autoplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-05.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="r-vert autoplay">
+          <video class="loop" muted loop playsinline preload="metadata" data-hover>
+            <source src="/work/cisco-spaces/social-06.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ── PRODUCT DEMOS ──
+         Silent loops at full width. Duplicate a figure to add more. -->
+    <section class="run">
+      <p class="run-label">Product demos</p>
+
+      <figure class="r-video hoverplay">
+        <video class="loop" muted loop playsinline preload="metadata" data-hover>
+          <source src="/work/cisco-spaces/demo-01.mp4" type="video/mp4">
+        </video>
+      </figure>
+
+      <figure class="r-video hoverplay">
+        <video class="loop" muted loop playsinline preload="metadata" data-hover>
+          <source src="/work/cisco-spaces/demo-02.mp4" type="video/mp4">
+        </video>
+      </figure>
+
+      <figure class="r-video hoverplay">
+        <video class="loop" muted loop playsinline preload="metadata" data-hover>
+          <source src="/work/cisco-spaces/demo-03.mp4" type="video/mp4">
+        </video>
+      </figure>
+    </section>
+
+    <!-- ── EVENT COVERAGE ── -->
+    <section class="run">
+      <p class="run-label">Event coverage</p>
+
+      <figure class="r-wide"><img src="/work/cisco-spaces/event-wide-01.jpg" alt="Cisco Spaces event coverage"></figure>
+
+      <div class="pair">
+        <figure class="r-tall"><img src="/work/cisco-spaces/event-tall-01.jpg" alt="Cisco Spaces event coverage"></figure>
+        <figure class="r-tall"><img src="/work/cisco-spaces/event-tall-02.jpg" alt="Cisco Spaces event coverage"></figure>
+      </div>
+    </section>
+
+    <!-- ── CUSTOMER STORY ──
+         The only piece with speech, so it keeps sound and its own controls. -->
+    <section class="run">
+      <p class="run-label">Customer story</p>
+
+      <figure class="r-play">
+        <video controls playsinline preload="metadata" poster="/work/cisco-spaces/testimonial-poster.jpg">
+          <source src="/work/cisco-spaces/testimonial.mp4" type="video/mp4">
+        </video>
+      </figure>
+    </section>
+
+  </div>
+
+  <!-- ── NEXT PROJECT ── -->
+  <div class="wrap">
+    <a class="next" href="/work/e3-refillery">
+      <div class="inner">
+        <div>
+          <p class="label">Next project</p>
+          <h2>e3 Refillery</h2>
+        </div>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </div>
+    </a>
+  </div>
+</main>
+
+<script is:inline>
+  /* Hover to play. Touch devices have no hover, so those play when scrolled into view. */
+  (function () {
+    var vids = document.querySelectorAll('video[data-hover]');
+    if (!vids.length) return;
+
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (calm) return;
+
+    var noHover = window.matchMedia('(hover: none)').matches;
+
+    if (noHover) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.play().catch(function () {}); }
+          else { e.target.pause(); }
+        });
+      }, { threshold: 0.4 });
+      vids.forEach(function (v) { io.observe(v); });
+      return;
+    }
+
+    vids.forEach(function (v) {
+      var fig = v.closest('figure');
+      if (!fig) return;
+      fig.addEventListener('mouseenter', function () { v.play().catch(function () {}); });
+      fig.addEventListener('mouseleave', function () { v.pause(); v.currentTime = 0; });
+    });
+  })();
+</script>
+
+</Layout>
