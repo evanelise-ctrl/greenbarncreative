@@ -782,3 +782,12 @@ footer a:hover { color: var(--cream50); }
   .brand-band { padding: 64px 0; }
   .brand-band img { height: 52px; }
 }
+
+.footer-logo {
+  width: auto;
+  height: 72px;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 24px;
+}
